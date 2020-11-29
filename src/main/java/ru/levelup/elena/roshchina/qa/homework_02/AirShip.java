@@ -1,15 +1,11 @@
 package ru.levelup.elena.roshchina.qa.homework_02;
 
-
-import javax.annotation.Nonnull;
-
-public class Airplane extends Aircraft {
-    public Airplane(String model, int seatingCapacity,int carryingCapacity, double rangeOfFlight) {
+public class AirShip extends Aircraft {
+    public AirShip(String model, int seatingCapacity, int carryingCapacity, double rangeOfFlight) {
         this.model = model;
-        this.aircraftType = "airplane";
+        this.aircraftType = "airship";
         this.seatingCapacity = seatingCapacity;
         this.carryingCapacity = carryingCapacity;
         this.rangeOfFlight = rangeOfFlight;
     }
 }
-
