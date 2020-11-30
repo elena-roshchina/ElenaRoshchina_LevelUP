@@ -197,13 +197,15 @@ public class Company implements AircraftRegistration {
         while (it.hasNext()){
             Aircraft a = it.next();
             if (seats != null & (a.getSeatingCapacity() < seats[0] | seats[1] < a.getSeatingCapacity())) {
-                it.remove(); continue;
+                it.remove();
+                continue;
             }
             if (load != null & (a.getCarryingCapacity() < load[0] | load[1] < a.getCarryingCapacity())) {
-                it.remove();continue;
+                it.remove();
+                continue;
             }
             if (range != null & (a.getRangeOfFlight() < range[0] | range[1] < a.getRangeOfFlight())) {
-                it.remove();continue;
+                it.remove();
             }
         }
         return airplanes;
