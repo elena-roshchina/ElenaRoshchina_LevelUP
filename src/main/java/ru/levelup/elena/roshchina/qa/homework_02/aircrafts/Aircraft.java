@@ -1,4 +1,4 @@
-package ru.levelup.elena.roshchina.qa.homework_02;
+package ru.levelup.elena.roshchina.qa.homework_02.aircrafts;
 
 public abstract class Aircraft implements Comparable {
     protected String model = "";

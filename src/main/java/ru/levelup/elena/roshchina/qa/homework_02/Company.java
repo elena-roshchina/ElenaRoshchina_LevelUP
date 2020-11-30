@@ -7,6 +7,10 @@
 
 package ru.levelup.elena.roshchina.qa.homework_02;
 
+import ru.levelup.elena.roshchina.qa.homework_02.aircrafts.Aircraft;
+import ru.levelup.elena.roshchina.qa.homework_02.autority.AircraftRegistration;
+import ru.levelup.elena.roshchina.qa.homework_02.autority.AviationAuthority;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -66,7 +70,7 @@ public class Company implements AircraftRegistration {
      */
     public void addAirCraft(Aircraft a) {
         String uid;
-        if (a.uid.equals("")) {
+        if (a.getUid().equals("")) {
             uid = Integer.toString(av.getRegNumber());
             System.out.println("New " +a.getAircraftType() + " " + a.getModel() + " was registered, number "  + uid);
             a.setUid(uid);

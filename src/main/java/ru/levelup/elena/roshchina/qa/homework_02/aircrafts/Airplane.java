@@ -1,7 +1,7 @@
-package ru.levelup.elena.roshchina.qa.homework_02;
+package ru.levelup.elena.roshchina.qa.homework_02.aircrafts;
 
 
-import javax.annotation.Nonnull;
+import ru.levelup.elena.roshchina.qa.homework_02.aircrafts.Aircraft;
 
 public class Airplane extends Aircraft {
     public Airplane(String model, int seatingCapacity,int carryingCapacity, double rangeOfFlight) {

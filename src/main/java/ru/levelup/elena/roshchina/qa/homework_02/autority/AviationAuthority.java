@@ -1,4 +1,4 @@
-package ru.levelup.elena.roshchina.qa.homework_02;
+package ru.levelup.elena.roshchina.qa.homework_02.autority;
 
 public class AviationAuthority {
     private int index;
