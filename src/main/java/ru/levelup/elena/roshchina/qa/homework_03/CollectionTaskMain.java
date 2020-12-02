@@ -19,24 +19,28 @@ public class CollectionTaskMain {
         System.out.println("Last " + TEST_BIT_SIZE + " members of mixed sequence: ");
         for (int i = SEQUENCE_SIZE - TEST_BIT_SIZE; i < SEQUENCE_SIZE; i++) System.out.print(arr.get(i) + ", ");
         System.out.println();
+
         System.out.println("Size of List equals to size of Set: " + (arr.size() == arrSet.size()));
         if (arr.size() == arrSet.size()) System.out.println("Thus, each of these values is unique.");
         HashMap<Integer, ArrayList<Integer>> classified = new HashMap<Integer, ArrayList<Integer>>();
+
+        // create containers for dividers
         int[] divider = {2,3,5,7};
+        for (int div: divider){
+            classified.put(div, new ArrayList<Integer>());
+        }
+
         boolean isPlaced;
         for (int i=0; i<SEQUENCE_SIZE; i++){
             isPlaced = false;
             for (int div: divider){
-                if(classified.get(div) != null){
-                    if (!isPlaced && arr.get(i) % div == 0 ) {
-                        classified.get(div).add(arr.get(i));
-                        isPlaced = true;
-                    }
-                } else {
-                    classified.put(div, new ArrayList<Integer>());
+                if (!isPlaced && arr.get(i) % div == 0 ) {
+                    classified.get(div).add(arr.get(i));
+                    isPlaced = true;
                 }
             }
         }
+
         System.out.println("Partial output of the obtained lists:");
         for (int div: divider){
             System.out.print("Divider = " + div + ", Total  = " + classified.get(div).size() + "\n\t");
