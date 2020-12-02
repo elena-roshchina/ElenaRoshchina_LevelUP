@@ -70,7 +70,7 @@ public class Company implements AircraftRegistration {
      */
     public void addAirCraft(Aircraft a) {
         String uid;
-        if (a.getUid().equals("")) {
+        if ("".equals(a.getUid())) {
             uid = Integer.toString(av.getRegNumber());
             System.out.println("New " +a.getAircraftType() + " " + a.getModel() + " was registered, number "  + uid);
             a.setUid(uid);

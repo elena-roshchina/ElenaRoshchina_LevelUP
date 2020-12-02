@@ -51,8 +51,4 @@ public class AviaMain {
             System.out.println(a);
         }
     }
-
-
-
-
 }
