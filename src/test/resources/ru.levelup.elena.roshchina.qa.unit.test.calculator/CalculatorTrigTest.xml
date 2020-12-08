@@ -1,0 +1,47 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Calculator Trigonometric Test">
+    <test name="Double Tan Test">
+        <parameter name="a" value="0.0"/>
+        <parameter name="expected" value="0.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorTrigTest">
+                <methods>
+                    <include name="doubleTanTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Cotan Test">
+        <parameter name="a" value="0.0"/>
+        <parameter name="expected" value="NaN"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorTrigTest">
+                <methods>
+                    <include name="doubleCotanTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Cos Test">
+        <parameter name="a" value="0.0"/>
+        <parameter name="expected" value="1.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorTrigTest">
+                <methods>
+                    <include name="doubleCosTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Sin Test">
+        <parameter name="a" value="0.0"/>
+        <parameter name="expected" value="0.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorTrigTest">
+                <methods>
+                    <include name="doubleSinTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

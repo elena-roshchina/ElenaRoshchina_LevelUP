@@ -1,0 +1,49 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Calculator Miscellaneous Functions Test">
+    <test name="Double Power Test">
+        <parameter name="a" value="5.0"/>
+        <parameter name="b" value="2.0"/>
+        <parameter name="expected" value="25.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMiscTest">
+                <methods>
+                    <include name="doublePowTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double SQRT Test">
+        <parameter name="a" value="25.0"/>
+        <parameter name="b" value="2.0"/>
+        <parameter name="expected" value="5.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMiscTest">
+                <methods>
+                    <include name="doubleSqrtTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Bool is Positive Test">
+        <parameter name="a" value="25"/>
+        <parameter name="expected" value="true"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMiscTest">
+                <methods>
+                    <include name="boolIsPositiveTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Bool is Negative Test">
+        <parameter name="a" value="25"/>
+        <parameter name="expected" value="false"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMiscTest">
+                <methods>
+                    <include name="boolIsNegativeTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

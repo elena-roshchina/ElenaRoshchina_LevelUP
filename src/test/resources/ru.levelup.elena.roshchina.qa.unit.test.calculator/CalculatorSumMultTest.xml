@@ -1,0 +1,51 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Calculator Sum and Myltiply Test">
+    <test name="Long Sum Test">
+        <parameter name="a" value="2"/>
+        <parameter name="b" value="2"/>
+        <parameter name="expected" value="4"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorSumTest">
+                <methods>
+                    <exclude name="doubleSumTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Sum Test">
+        <parameter name="a" value="2.5"/>
+        <parameter name="b" value="2.0"/>
+        <parameter name="expected" value="4.5"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorSumTest">
+                <methods>
+                    <exclude name="longSumTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Long Mult Test">
+        <parameter name="a" value="10000"/>
+        <parameter name="b" value="10000"/>
+        <parameter name="expected" value="100000000"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMultTest">
+                <methods>
+                    <exclude name="doubleMultTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Mult Test">
+        <parameter name="a" value="0.5"/>
+        <parameter name="b" value="5.0"/>
+        <parameter name="expected" value="2.5"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMultTest">
+                <methods>
+                    <exclude name="longMultTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

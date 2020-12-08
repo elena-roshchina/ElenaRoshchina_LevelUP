@@ -1,0 +1,189 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Calculator All Test">
+    <test name="Long Sum Test">
+        <parameter name="a" value="2"/>
+        <parameter name="b" value="2"/>
+        <parameter name="expected" value="4"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorSumTest">
+                <methods>
+                    <include name="longSumTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Sum Test">
+        <parameter name="a" value="2.5"/>
+        <parameter name="b" value="2.0"/>
+        <parameter name="expected" value="4.5"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorSumTest">
+                <methods>
+                    <include name="doubleSumTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Long Mult Test">
+        <parameter name="a" value="10000"/>
+        <parameter name="b" value="10000"/>
+        <parameter name="expected" value="100000000"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMultTest">
+                <methods>
+                    <include name="longMultTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Mult Test">
+        <parameter name="a" value="0.5"/>
+        <parameter name="b" value="5.0"/>
+        <parameter name="expected" value="2.5"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMultTest">
+                <methods>
+                    <include name="doubleMultTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Long Division TESTt">
+        <parameter name="a" value="120000000"/>
+        <parameter name="b" value="60000000"/>
+        <parameter name="expected" value="2"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorDivTest">
+                <methods>
+                    <exclude name="doubleDivTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Division TEST">
+        <parameter name="a" value="15.0"/>
+        <parameter name="b" value="10.0"/>
+        <parameter name="expected" value="1.5"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorDivTest">
+                <methods>
+                    <exclude name="longDivTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Long Substraction TESTt">
+        <parameter name="a" value="120000000"/>
+        <parameter name="b" value="60000000"/>
+        <parameter name="expected" value="60000000"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorSubTest">
+                <methods>
+                    <exclude name="doubleSubTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Substraction TEST">
+        <parameter name="a" value="15.0"/>
+        <parameter name="b" value="10.0"/>
+        <parameter name="expected" value="5.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorSubTest">
+                <methods>
+                    <exclude name="longSubTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Tan Test">
+        <parameter name="a" value="0.0"/>
+        <parameter name="expected" value="0.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorTrigTest">
+                <methods>
+                    <include name="doubleTanTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Cotan Test">
+        <parameter name="a" value="0.0"/>
+        <parameter name="expected" value="NaN"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorTrigTest">
+                <methods>
+                    <include name="doubleCotanTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Cos Test">
+        <parameter name="a" value="0.0"/>
+        <parameter name="expected" value="1.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorTrigTest">
+                <methods>
+                    <include name="doubleCosTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Sin Test">
+        <parameter name="a" value="0.0"/>
+        <parameter name="expected" value="0.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorTrigTest">
+                <methods>
+                    <include name="doubleSinTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double Power Test">
+        <parameter name="a" value="5.0"/>
+        <parameter name="b" value="2.0"/>
+        <parameter name="expected" value="25.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMiscTest">
+                <methods>
+                    <include name="doublePowTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Double SQRT Test">
+        <parameter name="a" value="25.0"/>
+        <parameter name="b" value="2.0"/>
+        <parameter name="expected" value="5.0"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMiscTest">
+                <methods>
+                    <include name="doubleSqrtTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Bool is Positive Test">
+        <parameter name="a" value="25"/>
+        <parameter name="expected" value="true"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMiscTest">
+                <methods>
+                    <include name="boolIsPositiveTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Bool is Negative Test">
+        <parameter name="a" value="25"/>
+        <parameter name="expected" value="false"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMiscTest">
+                <methods>
+                    <include name="boolIsNegativeTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
