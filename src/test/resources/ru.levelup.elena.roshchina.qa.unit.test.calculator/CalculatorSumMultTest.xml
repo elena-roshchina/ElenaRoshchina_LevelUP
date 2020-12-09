@@ -25,9 +25,6 @@
         </classes>
     </test>
     <test name="Long Mult Test">
-        <parameter name="a" value="10000"/>
-        <parameter name="b" value="10000"/>
-        <parameter name="expected" value="100000000"/>
         <classes>
             <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMultTest">
                 <methods>
@@ -37,9 +34,6 @@
         </classes>
     </test>
     <test name="Double Mult Test">
-        <parameter name="a" value="0.5"/>
-        <parameter name="b" value="5.0"/>
-        <parameter name="expected" value="2.5"/>
         <classes>
             <class name="ru.levelup.elena.roshchina.qa.unit.test.calculator.CalculatorMultTest">
                 <methods>

@@ -9,17 +9,17 @@ public class CalculatorSumTest extends AbstractBaseTest{
 
     @Test
     @Parameters({"a", "b", "expected"})
-    public void longSubTest(long a, long b, long expected){
-        System.out.println("Long Substraction TEST Method");
-        long actual = calculator.sub(a,b);
+    public void longSumTest(long a, long b, long expected){
+        System.out.println("\tLong Sum TEST Method");
+        long actual = calculator.sum(a,b);
         assertEquals(actual, expected);
     }
 
     @Test
     @Parameters({"a", "b", "expected"})
-    public void doubleSubTest(double a, double b, double expected){
-        System.out.println("Double Substraction TEST Method");
-        double actual = calculator.sub(a,b);
+    public void doubleSumTest(double a, double b, double expected){
+        System.out.println("\tDouble Sum TEST Method");
+        double actual = calculator.sum(a,b);
         assertEquals(actual, expected);
     }
 }

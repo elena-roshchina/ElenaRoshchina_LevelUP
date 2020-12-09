@@ -16,7 +16,7 @@ public class CalculatorMiscTest extends AbstractBaseTest{
     @Test
     @Parameters({"a", "b", "expected"})
     public void doublePowTest(double a, double b, double expected){
-        System.out.println("Double Power TEST Method");
+        System.out.println("\tDouble Power TEST Method");
         double actual = calculator.pow(a,b);
         assertEquals(actual, expected);
     }
@@ -24,7 +24,7 @@ public class CalculatorMiscTest extends AbstractBaseTest{
     @Test
     @Parameters({"a", "expected"})
     public void doubleSqrtTest(double a, double expected){
-        System.out.println("Double SQRT TEST Method");
+        System.out.println("\tDouble SQRT TEST Method");
         double actual = calculator.sqrt(a);
         assertEquals(actual, expected);
     }
@@ -32,7 +32,7 @@ public class CalculatorMiscTest extends AbstractBaseTest{
     @Test
     @Parameters({"a", "expected"})
     public void boolIsPositiveTest(long a, boolean expected){
-        System.out.println("Boolean IsPositive TEST Method");
+        System.out.println("\tBoolean IsPositive TEST Method");
         boolean actual = calculator.isPositive(a);
         assertEquals(actual, expected);
     }
@@ -40,7 +40,7 @@ public class CalculatorMiscTest extends AbstractBaseTest{
     @Test
     @Parameters({"a", "expected"})
     public void boolIsNegativeTest(long a, boolean expected){
-        System.out.println("Boolean IsNegative TEST Method");
+        System.out.println( "\tBoolean IsNegative TEST Method");
         boolean actual = calculator.isNegative(a);
         assertEquals(actual, expected);
     }

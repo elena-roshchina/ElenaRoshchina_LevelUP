@@ -6,7 +6,7 @@ import ru.levelup.qa.at.calculator.Calculator;
 public class AbstractBaseTest {
 
     Calculator calculator;
-
+    /*
     @BeforeSuite
     public void beforeSuite(){
         System.out.println( "====> beforeSuite Method");
@@ -21,19 +21,19 @@ public class AbstractBaseTest {
     public void beforeClass(){
         System.out.println(this.getClass().getName() + " before class Method");
     }
-
+    */
     @BeforeMethod
     public void setUp(){
         calculator = new Calculator();
-        System.out.println(this.getClass().getName() +  " SetUp Method");
+        System.out.println("\n" + this.getClass().getName() +  " starts: ");
     }
 
     @AfterMethod
     public void tearDown(){
-        System.out.println(this.getClass().getName() + " TearDown Method");
+        //System.out.println(this.getClass().getName() + " TearDown Method");
         calculator = null;
     }
-
+    /*
     @AfterClass
     public void afterClass(){
         System.out.println(this.getClass().getName() + " after class Method");
@@ -48,5 +48,6 @@ public class AbstractBaseTest {
     public void afterSuite(){
         System.out.println( "====> afterSuite Method");
     }
+    */
 
 }
