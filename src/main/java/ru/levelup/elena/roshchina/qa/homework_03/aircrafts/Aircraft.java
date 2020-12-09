@@ -12,12 +12,11 @@ public abstract class Aircraft implements Comparable {
 
     public Aircraft(String model, int seatingCapacity, int carryingCapacity, double rangeOfFlight) {
         if (seatingCapacity < 0 || carryingCapacity < 0 || rangeOfFlight < 0.0 ){
-            System.out.print("\tAirplane() error: Aircraft is not created, wrong specifications: ");
-            if (seatingCapacity < 0) System.out.print("seatingCapacity = " + seatingCapacity);
-            if (carryingCapacity < 0)System.out.print("carryingCapacity = " + carryingCapacity);
-            if (rangeOfFlight < 0)System.out.print("rangeOfFlight = " + rangeOfFlight);
-            System.out.println();
-            throw new IllegalAircraftSpecificationException("Illegal aircraft specification" );
+            String errorMessage = "\n\tAirplane() error: Aircraft is not created, wrong specifications:\n";
+            if (seatingCapacity < 0) errorMessage += "\t\tseatingCapacity = " + Integer.toString(seatingCapacity) + ",\n";
+            if (carryingCapacity < 0) errorMessage += "\t\tcarryingCapacity = " + Integer.toString(carryingCapacity) + ",\n";
+            if (rangeOfFlight < 0) errorMessage += "\t\trangeOfFlight = " + Double.toString(rangeOfFlight)+ "\n";
+            throw new IllegalAircraftSpecificationException("Illegal aircraft specification" + errorMessage);
         } else {
             this.model = model;
             this.seatingCapacity = seatingCapacity;

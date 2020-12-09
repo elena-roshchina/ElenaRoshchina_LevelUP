@@ -83,8 +83,7 @@ public class Company implements AircraftRegistration {
             }
             aircrafts.put(uid, a);
         } else {
-            System.out.println("Company.addAircraft() error: \n" + a.toString() + "\n\t model is not specified");
-            throw new ModelNotSpecifiedException("Aicraft model is not specified");
+            throw new ModelNotSpecifiedException("\n\tCompany.addAircraft() error:\n\t\t" + a.toString() + "\n\t\tmodel is not specified");
         }
     }
     /**
@@ -202,8 +201,7 @@ public class Company implements AircraftRegistration {
         }
 
         if (aircrafts.size() == 0){
-            System.out.println("Company.findAirCraftByParameters error: depot is empty");
-            throw new DepotSizeException("Company.findAirCraftByParameters() error: depot id empty");
+            throw new DepotSizeException("Company.findAirCraftByParameters() error: depot is empty");
         } else {
             int[] seats = null, load = null;
             double[] range = null;
@@ -265,8 +263,7 @@ public class Company implements AircraftRegistration {
      */
     public String getCompanyStat() throws DepotSizeException {
         if (aircrafts.size() == 0){
-            System.out.println("Company.getCompanyStat error: depot is empty");
-            throw new DepotSizeException("Unpossible to get company statistics: depot is empty");
+            throw new DepotSizeException("Company.getCompanyStat error: depot is empty");
         } else {
             int depotSize = aircrafts.size();
             int meanSeat = this.getTotalSeatingCapacity() / depotSize ;
