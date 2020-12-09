@@ -13,6 +13,7 @@
         <project.encoding>UTF-8</project.encoding>
         <!-- dependencies -->
         <testng.version>7.3.0</testng.version>
+        <suitename>CalculatorAllTest.xml</suitename>
         <!-- plugins -->
     </properties>
     <dependencies>
@@ -55,93 +56,48 @@
                     <encoding>${project.encoding}</encoding>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${project.basedir}\src\test\resources\ru.levelup.elena.roshchina.qa.unit.test.calculator\${suitename}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <profiles>
         <profile>
             <id>AllTest</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M5</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>${project.basedir}\src\test\resources\ru.levelup.elena.roshchina.qa.unit.test.calculator\CalculatorAllTest.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <properties>
+                <suitename>CalculatorAllTest.xml</suitename>
+            </properties>
         </profile>
         <profile>
             <id>Misc</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M5</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>${project.basedir}\src\test\resources\ru.levelup.elena.roshchina.qa.unit.test.calculator\CalculatorMiscTest.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <properties>
+                <suitename>CalculatorMiscTest.xml</suitename>
+            </properties>
         </profile>
         <profile>
             <id>SubDiv</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M5</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>${project.basedir}\src\test\resources\ru.levelup.elena.roshchina.qa.unit.test.calculator\CalculatorSubDivTest.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <properties>
+                <suitename>CalculatorSubDivTest.xml</suitename>
+            </properties>
         </profile>
         <profile>
             <id>SumMult</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M5</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>${project.basedir}\src\test\resources\ru.levelup.elena.roshchina.qa.unit.test.calculator\CalculatorSumMultTest.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <properties>
+                <suitename>CalculatorSumMultTest.xml</suitename>
+            </properties>
         </profile>
         <profile>
             <id>Trig</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M5</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>${project.basedir}\src\test\resources\ru.levelup.elena.roshchina.qa.unit.test.calculator\CalculatorTrigTest.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <properties>
+                <suitename>CalculatorTrigTest.xml</suitename>
+            </properties>
         </profile>
     </profiles>
 </project>
