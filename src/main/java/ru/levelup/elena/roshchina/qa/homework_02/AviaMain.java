@@ -6,6 +6,11 @@
  */
 package ru.levelup.elena.roshchina.qa.homework_02;
 
+import ru.levelup.elena.roshchina.qa.homework_02.aircrafts.AirShip;
+import ru.levelup.elena.roshchina.qa.homework_02.aircrafts.Aircraft;
+import ru.levelup.elena.roshchina.qa.homework_02.aircrafts.Airplane;
+import ru.levelup.elena.roshchina.qa.homework_02.aircrafts.Helicopter;
+
 import java.util.ArrayList;
 
 public class AviaMain {
@@ -46,8 +51,4 @@ public class AviaMain {
             System.out.println(a);
         }
     }
-
-
-
-
 }

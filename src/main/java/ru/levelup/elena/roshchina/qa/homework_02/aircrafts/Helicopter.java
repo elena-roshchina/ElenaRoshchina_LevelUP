@@ -1,6 +1,8 @@
-package ru.levelup.elena.roshchina.qa.homework_02;
+package ru.levelup.elena.roshchina.qa.homework_02.aircrafts;
 
-public class Helicopter extends Aircraft{
+import ru.levelup.elena.roshchina.qa.homework_02.aircrafts.Aircraft;
+
+public class Helicopter extends Aircraft {
 
     public Helicopter(String model, int seatingCapacity, int carryingCapacity, double rangeOfFlight) {
         this.model = model;
