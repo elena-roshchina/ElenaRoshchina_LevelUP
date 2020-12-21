@@ -2,9 +2,9 @@ package ru.levelup.elena.roshchina.qa.homework_05;
 
 public class TestUser {
 
-    private String url;
-    private String box;
-    private String key;
+    private String url = "";
+    private String box = "";
+    private String key = "";
 
     public TestUser(String postService) {
         if (postService.equals("mail.ru")){
@@ -12,9 +12,6 @@ public class TestUser {
             this.box = "vasyaignatev85";
             this.key = "ufybvtl$";
         } else {
-            this.url = "";
-            this.box = "";
-            this.key = "";
             System.out.println("No service defined");
         }
     }
