@@ -8,7 +8,7 @@ public class TestUser {
     private String key;
 
     public TestUser(String postService) {
-        if (postService.contains("mail.ru")){
+        if (postService.equals("mail.ru")){
             this.url = "https://mail.ru/";
             this.box = "vasyaignatev85";
             this.key = "ufybvtl$";
