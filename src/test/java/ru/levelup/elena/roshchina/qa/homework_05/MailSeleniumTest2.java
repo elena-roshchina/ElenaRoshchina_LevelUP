@@ -32,7 +32,6 @@ public class MailSeleniumTest2 extends AbstractBaseSeleniumTest {
     @Parameters({"url", "login", "pswd", "accountTitleFragment"})
     public void mailSeleniumTest2(String url, String login, String pswd, String accountTitleFragment){
 
-
         String subj = "Тест";
         String body = "The letter for folder Test";
         String email = login + "@mail.ru";
@@ -91,19 +90,9 @@ public class MailSeleniumTest2 extends AbstractBaseSeleniumTest {
             System.out.println("NoAlertPresentException");
         }
 
-        driver.navigate().refresh();
-
-        try {
-            Alert alert = driver.switchTo().alert();
-            alert.dismiss();
-        } catch (NoAlertPresentException e){
-            System.out.println("NoAlertPresentException");
-        }
-
-        WebElement input = new WebDriverWait(driver, 6000)
-                    .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@title, 'Входящие')]//div[@class='nav__folder-name__txt']")));
-
-        input.click();
+        WebElement output = new WebDriverWait(driver, 30000)
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@title, 'Отправленные')]//div[@class='nav__folder-name__txt']")));
+        output.click();
 
         /*
         List<WebElement> navElements = driver.findElements(By.xpath("//a[contains(@class, 'nav__item')]"));
