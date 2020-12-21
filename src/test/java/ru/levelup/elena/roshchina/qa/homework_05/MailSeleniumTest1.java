@@ -12,6 +12,7 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static ru.levelup.elena.roshchina.qa.utils.UsefulThing.getString;
 
 /*
 //1.	Войти в почту
@@ -30,28 +31,30 @@ import static org.testng.Assert.assertTrue;
 public class MailSeleniumTest1 extends AbstractBaseSeleniumTest {
 
     @Test
-    @Parameters({"url", "login", "pswd", "accountTitleFragment"})
-    public void mailSeleniumTest(String url, String login, String pswd, String accountTitleFragment){
+    @Parameters({"service", "accountTitleFragment"})
+    public void mailSeleniumTest(String service, String accountTitleFragment){
+        TestUser user = new TestUser(service);
+
         String subj = "my test subject";
         String body = "Lorem ipsum";
-        String email = login + "@mail.ru";
+        String email = user.getBox() + "@" + service;
 
         boolean draftSaved = false;
         boolean sentletterFound = false;
 
         driver.manage().window().maximize();
-        driver.navigate().to(url);
+        driver.navigate().to(user.getUrl());
         //1.	Войти в почту
-        WebElement username_input =  new WebDriverWait(driver, 30)
+        WebElement username_input =  new WebDriverWait(driver, 300)
                 .until(ExpectedConditions.elementToBeClickable(By.name("login")));
-        username_input.sendKeys(login);
+        username_input.sendKeys(user.getBox());
 
         WebElement pswd_input = driver.findElement(By.xpath("//button[contains(text(),'пароль')]"));
         pswd_input.click();
 
-        WebElement password_input = new WebDriverWait(driver, 30)
+        WebElement password_input = new WebDriverWait(driver, 300)
                 .until(ExpectedConditions.elementToBeClickable(By.name("password")));
-        password_input.sendKeys(pswd);
+        password_input.sendKeys(getString(user.getKey()));
 
         WebElement enter_button = driver.findElement(By.xpath("//button[contains(text(),'Войти')]"));
         enter_button.click();
@@ -65,7 +68,7 @@ public class MailSeleniumTest1 extends AbstractBaseSeleniumTest {
         //3.	Создать новое письмо (заполнить адресата, тему письма и тело)
         compose_button.click();
 
-        WebElement editLetterContainer = new WebDriverWait(driver, 30)
+        WebElement editLetterContainer = new WebDriverWait(driver, 300)
                 .until(ExpectedConditions.elementToBeClickable(By.className("head_container--3W05z")));
 
         List<WebElement> inputs = driver.findElements(By.tagName("input"));
@@ -83,15 +86,15 @@ public class MailSeleniumTest1 extends AbstractBaseSeleniumTest {
         WebElement saveDraft = driver.findElement(By.xpath("//span[@title='Сохранить']"));
         saveDraft.click();
 
-        WebElement closeEditLetter = new WebDriverWait(driver, 30)
+        WebElement closeEditLetter = new WebDriverWait(driver, 300)
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@title='Закрыть']")));
         closeEditLetter.click();
 
-        WebElement draftLetterFolder =  new WebDriverWait(driver, 30)
+        WebElement draftLetterFolder =  new WebDriverWait(driver, 300)
                 .until(ExpectedConditions.elementToBeClickable(By.partialLinkText("Черновики")));
         draftLetterFolder.click();
 
-        WebElement draftItem =  new WebDriverWait(driver, 30)
+        WebElement draftItem =  new WebDriverWait(driver, 300)
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[contains(@class,'letter-list-item')]")));
 
         String savedDraftTime= null; // для доп. идентификации черновика
@@ -114,14 +117,14 @@ public class MailSeleniumTest1 extends AbstractBaseSeleniumTest {
         assertTrue(draftSaved, "Checking Draft saved");
 
         //6.	Verify контент, адресата и тему письма (должно совпадать с пунктом 3)
-        WebElement savedBody = new WebDriverWait(driver, 30)
+        WebElement savedBody = new WebDriverWait(driver, 300)
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@role='textbox']//div")));
         assertTrue(savedBody.getText().contains(body), "Body check " + savedBody.getText());
 
         WebElement savedSubj = driver.findElement(By.xpath("//input[@name='Subject']"));
         assertEquals(savedSubj.getAttribute("value"), subj, "Check subject " + savedSubj.getAttribute("value"));
 
-        WebElement savedAddress = new WebDriverWait(driver, 30)
+        WebElement savedAddress = new WebDriverWait(driver, 300)
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='text--1tHKB']")));
         assertEquals(savedAddress.getText(), email, "Check address " + savedAddress.getText());
 
@@ -158,9 +161,8 @@ public class MailSeleniumTest1 extends AbstractBaseSeleniumTest {
         assertTrue(sentletterFound, "Check output folder");
 
         //10.	 Выйти из учётной записи
-        WebElement exitLink =new WebDriverWait(driver, 100)
+        WebElement exitLink =new WebDriverWait(driver, 300)
                 .until(ExpectedConditions.elementToBeClickable(By.id("PH_logoutLink")));
         exitLink.click();
-
     }
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static ru.levelup.elena.roshchina.qa.utils.UsefulThing.getString;
 
 /*
 //1.	Войти в почту
@@ -29,29 +30,30 @@ import static org.testng.Assert.assertTrue;
 public class MailSeleniumTest2 extends AbstractBaseSeleniumTest {
 
     @Test
-    @Parameters({"url", "login", "pswd", "accountTitleFragment"})
-    public void mailSeleniumTest2(String url, String login, String pswd, String accountTitleFragment){
+    @Parameters({"service", "accountTitleFragment"})
+    public void mailSeleniumTest2(String service, String accountTitleFragment){
+        TestUser user = new TestUser(service);
 
         String subj = "Тест";
         String body = "The letter for folder Test";
-        String email = login + "@mail.ru";
+        String email = user.getBox() + "@" + service;
 
         boolean testFolderItemFound = false;
         boolean sentletterFound = false;
 
         driver.manage().window().maximize();
-        driver.navigate().to(url);
+        driver.navigate().to(user.getUrl());
         //1.	Войти в почту
         WebElement username_input =  new WebDriverWait(driver, 30)
                 .until(ExpectedConditions.elementToBeClickable(By.name("login")));
-        username_input.sendKeys(login);
+        username_input.sendKeys(user.getBox());
 
         WebElement pswd_input = driver.findElement(By.xpath("//button[contains(text(),'пароль')]"));
         pswd_input.click();
 
         WebElement password_input = new WebDriverWait(driver, 30)
                 .until(ExpectedConditions.elementToBeClickable(By.name("password")));
-        password_input.sendKeys(pswd);
+        password_input.sendKeys(getString(user.getKey()));
 
         WebElement enter_button = driver.findElement(By.xpath("//button[contains(text(),'Войти')]"));
         enter_button.click();

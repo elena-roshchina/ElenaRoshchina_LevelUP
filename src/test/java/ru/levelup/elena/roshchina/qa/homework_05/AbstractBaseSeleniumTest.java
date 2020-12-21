@@ -11,6 +11,7 @@ import ru.levelup.elena.roshchina.qa.utils.Sleep;
 
 
 public class AbstractBaseSeleniumTest {
+
     protected WebDriver driver;
     @BeforeSuite
     public void setupSuite(){
