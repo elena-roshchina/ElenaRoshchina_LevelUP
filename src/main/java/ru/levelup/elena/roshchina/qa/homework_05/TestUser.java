@@ -1,8 +1,7 @@
 package ru.levelup.elena.roshchina.qa.homework_05;
 
 public class TestUser {
-
-    private String postService;
+    
     private String url;
     private String box;
     private String key;
