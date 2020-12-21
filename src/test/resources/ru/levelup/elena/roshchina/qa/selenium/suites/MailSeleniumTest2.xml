@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Selenium Parametrized Test 2">
+    <test name="Mail.ru account entrance test 2">
+        <parameter name="url" value="https://mail.ru/"/>
+        <parameter name="login" value="vasyaignatev85"/>
+        <parameter name="pswd" value="ufybvtl$31415"/>
+        <parameter name="accountTitleFragment" value="Входящие"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.homework_05.MailSeleniumTest2"/>
+        </classes>
+    </test>
+</suite>
