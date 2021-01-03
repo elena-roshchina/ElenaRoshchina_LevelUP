@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Selenium Test 3">
+    <test name="Mail.ru account delete message test 3">
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.homework_05.MailSeleniumTest3"/>
+        </classes>
+    </test>
+</suite>

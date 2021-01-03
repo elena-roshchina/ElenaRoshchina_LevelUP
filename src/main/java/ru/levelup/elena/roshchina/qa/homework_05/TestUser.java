@@ -2,18 +2,12 @@ package ru.levelup.elena.roshchina.qa.homework_05;
 
 public class TestUser {
 
-    private String url = "";
-    private String box = "";
-    private String key = "";
-
-    public TestUser(String postService) {
-        if (postService.equals("mail.ru")){
-            this.url = "https://mail.ru/";
-            this.box = "vasyaignatev85";
-            this.key = "ufybvtl$";
-        } else {
-            System.out.println("No service defined");
-        }
+    private String url = "https://mail.ru/";
+    private String box = "vasyaignatev85";
+    private String key = "ufybvtl$";
+    private String service = "mail.ru";
+    private String accountTitleFragment = "Входящие";
+    public TestUser() {
     }
 
     public String getUrl() {
@@ -26,5 +20,13 @@ public class TestUser {
 
     public String getKey() {
         return key;
+    }
+
+    public String getEmail() {
+        return this.getBox() + "@" + this.service;
+    }
+
+    public String getAccountTitleFragment() {
+        return this.accountTitleFragment;
     }
 }

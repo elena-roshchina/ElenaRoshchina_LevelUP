@@ -83,9 +83,21 @@
     </build>
     <profiles>
         <profile>
-            <id>MailTest1</id>
+            <id>Test1</id>
             <properties>
                 <seleniumsuitename>MailSeleniumTest1.xml</seleniumsuitename>
+            </properties>
+        </profile>
+        <profile>
+            <id>Test2</id>
+            <properties>
+                <seleniumsuitename>MailSeleniumTest2.xml</seleniumsuitename>
+            </properties>
+        </profile>
+        <profile>
+            <id>Test3</id>
+            <properties>
+                <seleniumsuitename>MailSeleniumTest3.xml</seleniumsuitename>
             </properties>
         </profile>
     </profiles>

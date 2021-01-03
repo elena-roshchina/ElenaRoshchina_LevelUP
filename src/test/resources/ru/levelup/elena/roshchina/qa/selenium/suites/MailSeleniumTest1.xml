@@ -1,8 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Selenium Parametrized Test">
-    <test name="Mail.ru test folder test 1">
-        <parameter name="service" value="mail.ru"/>
-        <parameter name="accountTitleFragment" value="Входящие"/>
+<suite name="Selenium Test">
+    <test name="Mail.ru entrance test 1">
         <classes>
             <class name="ru.levelup.elena.roshchina.qa.homework_05.MailSeleniumTest1"/>
         </classes>
