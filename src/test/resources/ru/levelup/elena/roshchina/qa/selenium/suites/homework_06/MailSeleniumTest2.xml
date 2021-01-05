@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Selenium Test 2">
+    <test name="Mail.ru account Test folder test 2">
+        <parameter name="subj" value="Тест"/>
+        <parameter name="body" value="Exercise 2 body text"/>
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.homework_06.MailSeleniumTest2"/>
+        </classes>
+    </test>
+</suite>
