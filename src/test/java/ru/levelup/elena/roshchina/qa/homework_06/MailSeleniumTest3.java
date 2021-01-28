@@ -44,8 +44,9 @@ public class MailSeleniumTest3 extends AbstractBaseSeleniumTest {
         indexPage.goToInputFoder();
 
         //5.	Verify, что письмо появилось в папке Входящие
+        System.out.println("Поиск писем в папке входящие");
         HashMap<String, WebElement> receivedLetter = indexPage.findLetter(user.getEmail(), subj, body);
-        assertNotNull(receivedLetter);
+        assertNotNull(receivedLetter, user.getEmail() + " " +  subj + " " + body);
 
         //6.	Verify контент, адресата и тему письма (должно совпадать с пунктом 3)
         assertTrue(receivedLetter
@@ -67,7 +68,9 @@ public class MailSeleniumTest3 extends AbstractBaseSeleniumTest {
 
         //8.	Verify что письмо появилось в папке Корзина
         indexPage.goToTrashFoder();
+        System.out.println("Поиск писем в папке Корзина");
         HashMap<String, WebElement> deletedItem = indexPage.findLetter(user.getEmail(), subj, body);
+        System.out.println(indexPage.findLetter(user.getEmail(), subj, body));
         assertNotNull(deletedItem);
 
         //9.	Выйти из учётной записи

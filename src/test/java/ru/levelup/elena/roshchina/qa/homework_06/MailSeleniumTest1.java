@@ -60,10 +60,13 @@ public class MailSeleniumTest1 extends AbstractBaseSeleniumTest {
                 .getText()
                 .contains(subj), "Check subject " + savedDraft.get("subject").getText());
 
-        assertEquals(savedDraft
+        assertTrue(savedDraft
                 .get("correspondent")
-                .getText(), user.getEmail(), "Check user " + savedDraft.get("correspondent").getText());
-
+                .getText()
+                .equals(user.getEmail()) || savedDraft
+                .get("correspondent")
+                .getAttribute("title")
+                .equals(user.getEmail()));
         //7.	Отправить письмо
         indexPage.sendDraftLetter(savedDraft.get("subject"));
 
