@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 
 import static org.testng.Assert.*;
-import static ru.levelup.elena.roshchina.qa.utils.UsefulThing.getString;
+import static ru.levelup.elena.roshchina.qa.utils.GenPassword.getPassword;
 
 /* Exercise 1
 1.	Войти в почту
@@ -32,7 +32,7 @@ public class MailSeleniumTest1 extends AbstractBaseSeleniumTest {
         //1.	Войти в почту
         MailRuEntrancePage entermailRu = new MailRuEntrancePage(driver);
         entermailRu.open();
-        entermailRu.login(user.getBox(), getString(user.getKey()));
+        entermailRu.login(user.getBox(), getPassword(user.getKey()));
         MailRuPage indexPage = new MailRuPage(driver);
 
         //2.	Assert, что вход выполнен успешно
