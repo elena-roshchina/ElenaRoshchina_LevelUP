@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="GorestAPI test">
+    <test name="go rest api test">
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.homework_07.GoRestAPITest"/>
+        </classes>
+    </test>
+</suite>
