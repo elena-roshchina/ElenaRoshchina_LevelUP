@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import static ru.levelup.elena.roshchina.qa.utils.UsefulThing.getString;
+import static ru.levelup.elena.roshchina.qa.utils.GenPassword.getPassword;
 
 /*
 Exercise 3
@@ -54,7 +54,7 @@ public class MailSeleniumTest3 extends AbstractBaseSeleniumTest {
 
         WebElement password_input = new WebDriverWait(driver, 30)
                 .until(ExpectedConditions.elementToBeClickable(By.name("password")));
-        password_input.sendKeys(getString(user.getKey()));
+        password_input.sendKeys(getPassword(user.getKey()));
 
         WebElement enter_button = driver.findElement(By.xpath("//button[contains(text(),'Войти')]"));
         enter_button.click();

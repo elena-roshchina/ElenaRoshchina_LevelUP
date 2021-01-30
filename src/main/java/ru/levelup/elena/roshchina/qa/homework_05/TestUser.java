@@ -2,31 +2,31 @@ package ru.levelup.elena.roshchina.qa.homework_05;
 
 public class TestUser {
 
-    private String url = "https://mail.ru/";
-    private String box = "vasyaignatev85";
-    private String key = "ufybvtl$";
-    private String service = "mail.ru";
-    private String accountTitleFragment = "Входящие";
+    private String URL = "https://mail.ru/";
+    private String BOX = "vasyaignatev85";
+    private String KEY = "ufybvtl$";
+    private String SERVICE = "mail.ru";
+    private String ACCOUNT_TITLE_FRAGMENT = "Входящие";
     public TestUser() {
     }
 
     public String getUrl() {
-        return url;
+        return URL;
     }
 
     public String getBox() {
-        return box;
+        return BOX;
     }
 
     public String getKey() {
-        return key;
+        return KEY;
     }
 
     public String getEmail() {
-        return this.getBox() + "@" + this.service;
+        return this.getBox() + "@" + this.SERVICE;
     }
 
     public String getAccountTitleFragment() {
-        return this.accountTitleFragment;
+        return this.ACCOUNT_TITLE_FRAGMENT;
     }
 }
