@@ -8,9 +8,97 @@
     <artifactId>git-test-project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <source>1.8</source>
-        <target>1.8</target>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+        <project.encoding>UTF-8</project.encoding>
+        <!-- dependencies -->
+        <testng.version>7.3.0</testng.version>
+        <webdrivermanager.version>4.2.2</webdrivermanager.version>
+        <suitename>CalculatorAllTest.xml</suitename>
+        <seleniumsuitename>MailSeleniumTest1.xml</seleniumsuitename>
+        <!-- plugins -->
     </properties>
-
-
+    <dependencies>
+        <!--dependency>
+            <groupId>ru.levelup.com</groupId>
+            <artifactId>calculator</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/calculator-1.0.jar</systemPath>
+        </dependency-->
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <!--dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.1</version>
+        </dependency-->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                    <encoding>${project.encoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${project.basedir}\src\test\resources\ru\levelup\elena\roshchina\qa\selenium\suites\homework_06\${seleniumsuitename}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>Test1</id>
+            <properties>
+                <seleniumsuitename>MailSeleniumTest1.xml</seleniumsuitename>
+            </properties>
+        </profile>
+        <profile>
+            <id>Test2</id>
+            <properties>
+                <seleniumsuitename>MailSeleniumTest2.xml</seleniumsuitename>
+            </properties>
+        </profile>
+        <profile>
+            <id>Test3</id>
+            <properties>
+                <seleniumsuitename>MailSeleniumTest3.xml</seleniumsuitename>
+            </properties>
+        </profile>
+    </profiles>
 </project>
