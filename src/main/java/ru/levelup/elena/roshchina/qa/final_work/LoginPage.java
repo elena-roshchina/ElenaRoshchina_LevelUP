@@ -4,10 +4,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage extends AbstractBaseFleetManagement {
+public class LoginPage {
+
+    public String loginUrl;
+    private String login;
+    private String password;
+
+    protected WebDriver driver;
 
     @FindBy(name = "_username")
     private WebElement username_input;
@@ -16,45 +23,50 @@ public class LoginPage extends AbstractBaseFleetManagement {
     @FindBy(name ="_submit")
     WebElement submit_button;
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage(WebDriver driver, String loginUrl, String login, String password) {
+        PageFactory.initElements(driver, this);
+        this.driver = driver;
+        this.login = login;
+        this.loginUrl = loginUrl;
+        this.password = password;
     }
-
-    //<li class="dropdown user-menu-dropdown" id="user-menu">
-    //        <a href="javascript: void(0);" class="dropdown-toggle" data-toggle="dropdown">
-    //                            Darrick Bergstrom
-    //                                <i class="fa-caret-down"></i> </a>
-    //                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-    //                            <li class="last">
-    //            <a href="/user/logout" class="no-hash">Logout</a>
-    /*
-    @FindBy(xpath = userDropDownMenuXpath)
-    WebElement userDropDownMenu;
-    protected final String logoutLinkXpath = "//a[@href='/user/logout']";
-    @FindBy(xpath = logoutLinkXpath)
-    WebElement logoutLink;*/
-
-
 
     // открыть главную страницу
     public void open(){
         driver.manage().window().maximize();
-        driver.navigate().to(LOGIN_URL);
+        driver.navigate().to(loginUrl);
     }
 
     // вход
     public DashboardsPage login(){
-        username_input.sendKeys(LOGIN);
-        password_input.sendKeys(PASSWORD);
+        username_input.sendKeys(login);
+        password_input.sendKeys(password);
 
         submit_button.click();
-        new WebDriverWait(driver, 100)
-                .until(ExpectedConditions.elementToBeClickable(By.xpath(userDropDownMenuXpath))); // ожидание загрузки пункта меню
-
+        //new WebDriverWait(driver, 100)
+        //        .until(ExpectedConditions.elementToBeClickable(By.xpath(userDropDownMenuXpath))); // ожидание загрузки пункта меню
+       //waitForClicableElement(userDropDownMenu);
         return new DashboardsPage(driver);
     }
 
-
-
+    public void waitForClicableElement(WebElement we){
+        try {
+            new WebDriverWait(driver, 30)
+                    .until(ExpectedConditions.elementToBeClickable(we));
+        } catch (org.openqa.selenium.TimeoutException e){
+            try {
+                new WebDriverWait(driver, 30)
+                        .until(ExpectedConditions.elementToBeClickable(we));
+            } catch (org.openqa.selenium.TimeoutException ee){
+                try {
+                    new WebDriverWait(driver, 30)
+                            .until(ExpectedConditions.elementToBeClickable(we));
+                } catch (org.openqa.selenium.TimeoutException eee){
+                    new WebDriverWait(driver, 30)
+                            .until(ExpectedConditions.elementToBeClickable(we));
+                }
+            }
+        }
+    }
 
 }

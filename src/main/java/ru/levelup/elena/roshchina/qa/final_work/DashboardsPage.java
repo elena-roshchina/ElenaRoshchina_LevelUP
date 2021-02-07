@@ -4,10 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class DashboardsPage extends AbstractBaseFleetManagement {
 
-    public final String EXPECTED_ENTRANCE_TITLE = "Dashboard";
+    public static final String EXPECTED_ENTRANCE_TITLE = "Dashboard";
 
     public DashboardsPage(WebDriver driver) {
         super(driver);
@@ -15,8 +16,13 @@ public class DashboardsPage extends AbstractBaseFleetManagement {
 
 
     public void goToMainMenuItem(String menuItem, String subItemName){
+
         JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        waitForElements(mainMenuItems);
+
         WebElement foundSubItem;
+
         for (WebElement item : mainMenuItems) {
             if (item.getText().contains(menuItem)) {
                 WebElement par = item.findElement(By.xpath("./../.."));
@@ -25,6 +31,7 @@ public class DashboardsPage extends AbstractBaseFleetManagement {
                 js.executeScript("arguments[0].click();", foundSubItem);
             }
         }
+
     }
 
     public FleetPage gotoFleet(String subItemName){

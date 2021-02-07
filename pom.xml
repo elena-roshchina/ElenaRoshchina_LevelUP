@@ -15,7 +15,13 @@
         <testng.version>7.3.0</testng.version>
         <webdrivermanager.version>4.2.2</webdrivermanager.version>
         <suitename>CalculatorAllTest.xml</suitename>
-        <seleniumsuitename>MailSeleniumTest1.xml</seleniumsuitename>
+
+        <fleetsuitename>FleetManageTest1.xml</fleetsuitename>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <!-- Alure -->
+        <aspectj.version>1.8.10</aspectj.version>
+        <allure.version>2.13.7</allure.version>
         <!-- plugins -->
     </properties>
     <dependencies>
@@ -42,7 +48,7 @@
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
-            <version>3.0.0-M5</version>
+            <version>${maven-surefire-plugin.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
@@ -56,48 +62,56 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
         </dependency>
+        <!-- allure -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+            <!--scope>test</scope-->
+        </dependency>
     </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>${java.source.version}</source>
                     <target>${java.target.version}</target>
-                    <encoding>${project.encoding}</encoding>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${project.basedir}\src\test\resources\ru\levelup\elena\roshchina\qa\selenium\suites\homework_06\${seleniumsuitename}</suiteXmlFile>
+                        <suiteXmlFile>${project.basedir}\src\test\resources\ru\levelup\elena\roshchina\qa\suites\final_work\${fleetsuitename}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    <systemPropertyVariables>
+                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                    </systemPropertyVariables>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
     <profiles>
         <profile>
-            <id>Test1</id>
+            <id>Fleet1</id>
             <properties>
-                <seleniumsuitename>MailSeleniumTest1.xml</seleniumsuitename>
-            </properties>
-        </profile>
-        <profile>
-            <id>Test2</id>
-            <properties>
-                <seleniumsuitename>MailSeleniumTest2.xml</seleniumsuitename>
-            </properties>
-        </profile>
-        <profile>
-            <id>Test3</id>
-            <properties>
-                <seleniumsuitename>MailSeleniumTest3.xml</seleniumsuitename>
+                <seleniumsuitename>FleetManageTest1</seleniumsuitename>
             </properties>
         </profile>
     </profiles>

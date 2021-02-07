@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Fleet Manage Test">
+    <test name="Fleetmanagement test 1">
+        <classes>
+            <class name="ru.levelup.elena.roshchina.qa.final_work.FleetManagementLoginTest"/>
+            <class name="ru.levelup.elena.roshchina.qa.final_work.FleetManagementTest"/>
+        </classes>
+    </test>
+</suite>
