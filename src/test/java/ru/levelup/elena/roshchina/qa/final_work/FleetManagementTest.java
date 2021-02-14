@@ -38,7 +38,7 @@ public class FleetManagementTest extends AbstractBaseFleetManagementTest {
         entrancePage.open();                             //1.	Открыть сайт
         DashboardsPage mainPage = entrancePage.login();  //2.	Авторизоваться под заданным пользователем
         //3.	Проверить, что авторизация прошла успешно
-        assertTrue(mainPage.getPageTitle().contains(DashboardsPage.EXPECTED_ENTRANCE_TITLE), mainPage.getPageTitle() + "!=" + DashboardsPage.EXPECTED_ENTRANCE_TITLE);
+        assertTrue(mainPage.getPageTitle().contains(DashboardsPage.EXPECTED_ENTRANCE_TITLE), mainPage.getPageTitle());
 
         //4.	Открыть Fleet -> Vehicles
         FleetPage vehiclesPage = mainPage.gotoFleet("Vehicles");

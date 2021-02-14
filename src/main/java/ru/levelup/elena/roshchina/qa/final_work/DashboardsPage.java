@@ -1,10 +1,8 @@
 package ru.levelup.elena.roshchina.qa.final_work;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class DashboardsPage extends AbstractBaseFleetManagement {
 
@@ -14,15 +12,9 @@ public class DashboardsPage extends AbstractBaseFleetManagement {
         super(driver);
     }
 
-
     public void goToMainMenuItem(String menuItem, String subItemName){
-
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-
         waitForElements(mainMenuItems);
-
         WebElement foundSubItem;
-
         for (WebElement item : mainMenuItems) {
             if (item.getText().contains(menuItem)) {
                 WebElement par = item.findElement(By.xpath("./../.."));
@@ -31,7 +23,6 @@ public class DashboardsPage extends AbstractBaseFleetManagement {
                 js.executeScript("arguments[0].click();", foundSubItem);
             }
         }
-
     }
 
     public FleetPage gotoFleet(String subItemName){

@@ -1,12 +1,10 @@
 package ru.levelup.elena.roshchina.qa.final_work;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class LoginPage {
 
@@ -41,32 +39,7 @@ public class LoginPage {
     public DashboardsPage login(){
         username_input.sendKeys(login);
         password_input.sendKeys(password);
-
         submit_button.click();
-        //new WebDriverWait(driver, 100)
-        //        .until(ExpectedConditions.elementToBeClickable(By.xpath(userDropDownMenuXpath))); // ожидание загрузки пункта меню
-       //waitForClicableElement(userDropDownMenu);
         return new DashboardsPage(driver);
     }
-
-    public void waitForClicableElement(WebElement we){
-        try {
-            new WebDriverWait(driver, 30)
-                    .until(ExpectedConditions.elementToBeClickable(we));
-        } catch (org.openqa.selenium.TimeoutException e){
-            try {
-                new WebDriverWait(driver, 30)
-                        .until(ExpectedConditions.elementToBeClickable(we));
-            } catch (org.openqa.selenium.TimeoutException ee){
-                try {
-                    new WebDriverWait(driver, 30)
-                            .until(ExpectedConditions.elementToBeClickable(we));
-                } catch (org.openqa.selenium.TimeoutException eee){
-                    new WebDriverWait(driver, 30)
-                            .until(ExpectedConditions.elementToBeClickable(we));
-                }
-            }
-        }
-    }
-
 }

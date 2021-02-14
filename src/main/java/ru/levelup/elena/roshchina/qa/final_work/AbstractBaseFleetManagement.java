@@ -15,6 +15,7 @@ import java.util.List;
 public abstract class AbstractBaseFleetManagement {
 
     protected final String FLEET_MENU = "Fleet";
+    protected WebDriverWait wait;
 
     public final String userDropDownMenuXpath = "//li[@id='user-menu']/a[@class='dropdown-toggle']";
     @FindBy(xpath = userDropDownMenuXpath)          // Top Right Corner menu
@@ -31,10 +32,13 @@ public abstract class AbstractBaseFleetManagement {
     List<WebElement> mainMenuItems;
 
     protected WebDriver driver;
+    protected JavascriptExecutor js;
 
     public AbstractBaseFleetManagement(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
+        this.js = (JavascriptExecutor) driver;
+        this.wait = new WebDriverWait(driver, 30);
     }
 
     public String getPageTitle(){
@@ -63,19 +67,15 @@ public abstract class AbstractBaseFleetManagement {
 
     public void waitForElement(WebElement we){
         try {
-            new WebDriverWait(driver, 30)
-                    .until(ExpectedConditions.visibilityOf(we));
+            this.wait.until(ExpectedConditions.visibilityOf(we));
         } catch (org.openqa.selenium.TimeoutException e){
             try {
-                new WebDriverWait(driver, 30)
-                        .until(ExpectedConditions.visibilityOf(we));
+                this.wait.until(ExpectedConditions.visibilityOf(we));
             } catch (org.openqa.selenium.TimeoutException ee){
                 try {
-                    new WebDriverWait(driver, 30)
-                            .until(ExpectedConditions.visibilityOf(we));
+                    this.wait.until(ExpectedConditions.visibilityOf(we));
                 } catch (org.openqa.selenium.TimeoutException eee){
-                    new WebDriverWait(driver, 30)
-                            .until(ExpectedConditions.visibilityOf(we));
+                    this.wait.until(ExpectedConditions.visibilityOf(we));
                 }
             }
         }
@@ -83,19 +83,15 @@ public abstract class AbstractBaseFleetManagement {
 
     public void waitForElements(List<WebElement> we){
         try {
-            new WebDriverWait(driver, 30)
-                    .until(ExpectedConditions.visibilityOfAllElements(we));
+            this.wait.until(ExpectedConditions.visibilityOfAllElements(we));
         } catch (org.openqa.selenium.TimeoutException e){
             try {
-                new WebDriverWait(driver, 30)
-                        .until(ExpectedConditions.visibilityOfAllElements(we));
+                this.wait.until(ExpectedConditions.visibilityOfAllElements(we));
             } catch (org.openqa.selenium.TimeoutException ee){
                 try {
-                    new WebDriverWait(driver, 30)
-                            .until(ExpectedConditions.visibilityOfAllElements(we));
+                    this.wait.until(ExpectedConditions.visibilityOfAllElements(we));
                 } catch (org.openqa.selenium.TimeoutException eee){
-                    new WebDriverWait(driver, 30)
-                            .until(ExpectedConditions.visibilityOfAllElements(we));
+                    this.wait.until(ExpectedConditions.visibilityOfAllElements(we));
                 }
             }
         }
@@ -103,19 +99,19 @@ public abstract class AbstractBaseFleetManagement {
 
     public void waitForClicableElement(WebElement we){
         try {
-            new WebDriverWait(driver, 30)
-                    .until(ExpectedConditions.elementToBeClickable(we));
+            this.wait.until(ExpectedConditions.elementToBeClickable(we));
         } catch (org.openqa.selenium.TimeoutException e){
             try {
-                new WebDriverWait(driver, 30)
-                        .until(ExpectedConditions.elementToBeClickable(we));
+                this.wait.until(ExpectedConditions.elementToBeClickable(we));
             } catch (org.openqa.selenium.TimeoutException ee){
                 try {
-                    new WebDriverWait(driver, 30)
-                            .until(ExpectedConditions.elementToBeClickable(we));
+                    this.wait.until(ExpectedConditions.elementToBeClickable(we));
                 } catch (org.openqa.selenium.TimeoutException eee){
-                    new WebDriverWait(driver, 30)
-                            .until(ExpectedConditions.elementToBeClickable(we));
+                    try {
+                        this.wait.until(ExpectedConditions.elementToBeClickable(we));
+                    } catch (org.openqa.selenium.TimeoutException eeee) {
+                        this.wait.until(ExpectedConditions.elementToBeClickable(we));
+                    }
                 }
             }
         }

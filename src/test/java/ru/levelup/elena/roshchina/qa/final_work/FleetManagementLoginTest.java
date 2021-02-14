@@ -5,8 +5,6 @@ import org.testng.annotations.Test;
 
 public class FleetManagementLoginTest extends AbstractBaseFleetManagementTest  {
 
-
-
     @Test(testName = "Проверка логина")
     public void loginTest(){
         LoginPage entrancePage = new LoginPage(driver, loginUrl, login, password);

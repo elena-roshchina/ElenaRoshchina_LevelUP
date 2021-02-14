@@ -18,7 +18,6 @@ public class FleetPage extends AbstractBaseFleetManagement {
 
     @Step("Открыть веб-форму для создания записи машины")
     public CreateCarPage createCar(){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
         waitForClicableElement(createCarButton);
         js.executeScript("arguments[0].click();", createCarButton);
         return new CreateCarPage(driver);

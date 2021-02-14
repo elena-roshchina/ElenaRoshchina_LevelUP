@@ -39,6 +39,10 @@
 # *.iml
 # *.ipr
 
+# allure
+.allire/
+allure-results/
+
 # CMake
 cmake-build-*/
 
