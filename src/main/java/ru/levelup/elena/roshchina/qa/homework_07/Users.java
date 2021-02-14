@@ -1,11 +1,11 @@
-package ru.levelup.elena.roshchina.qa.homework_07.users;
+package ru.levelup.elena.roshchina.qa.homework_07;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UsersPojo {
+public class Users {
 
     private Integer code;
     private Meta meta;

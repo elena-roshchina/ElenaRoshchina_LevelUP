@@ -1,4 +1,4 @@
-package ru.levelup.elena.roshchina.qa.homework_07.posts;
+package ru.levelup.elena.roshchina.qa.homework_07;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

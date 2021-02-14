@@ -1,4 +1,4 @@
-package ru.levelup.elena.roshchina.qa.homework_07.comments;
+package ru.levelup.elena.roshchina.qa.homework_07;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 

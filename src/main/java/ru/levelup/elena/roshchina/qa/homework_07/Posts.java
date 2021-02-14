@@ -1,4 +1,4 @@
-package ru.levelup.elena.roshchina.qa.homework_07.posts;
+package ru.levelup.elena.roshchina.qa.homework_07;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
@@ -8,7 +8,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 
-public class PostsPojo {
+public class Posts {
 
     @SerializedName("code")
     @Expose

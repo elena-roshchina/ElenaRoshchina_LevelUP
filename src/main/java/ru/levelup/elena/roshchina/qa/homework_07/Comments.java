@@ -1,4 +1,4 @@
-package ru.levelup.elena.roshchina.qa.homework_07.comments;
+package ru.levelup.elena.roshchina.qa.homework_07;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CommentsPojo {
+public class Comments {
 
     private Integer code;
     private Meta meta;

@@ -1,23 +1,17 @@
-package ru.levelup.elena.roshchina.qa.homework_07.posts;
+package ru.levelup.elena.roshchina.qa.homework_07;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Pagination {
 
-    @SerializedName("total")
-    @Expose
     private Integer total;
-    @SerializedName("pages")
-    @Expose
     private Integer pages;
-    @SerializedName("page")
-    @Expose
     private Integer page;
-    @SerializedName("limit")
-    @Expose
     private Integer limit;
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     public Integer getTotal() {
         return total;
@@ -51,12 +45,17 @@ public class Pagination {
         this.limit = limit;
     }
 
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
+    }
+
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
+    }
+
     @Override
     public String toString() {
-        return new ToStringBuilder(this)
-                .append("total", total)
-                .append("pages", pages)
-                .append("page", page).append("limit", limit).toString();
+        return new ToStringBuilder(this).append("total", total).append("pages", pages).append("page", page).append("limit", limit).append("additionalProperties", additionalProperties).toString();
     }
 
 }

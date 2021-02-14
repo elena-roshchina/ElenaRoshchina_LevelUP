@@ -1,52 +1,62 @@
 package ru.levelup.elena.roshchina.qa.homework_07;
 
 import org.testng.annotations.BeforeMethod;
-import ru.levelup.elena.roshchina.qa.homework_07.comments.CommentsPojo;
-import ru.levelup.elena.roshchina.qa.homework_07.comments.SingleComment;
-import ru.levelup.elena.roshchina.qa.homework_07.posts.PostsPojo;
-import ru.levelup.elena.roshchina.qa.homework_07.posts.SinglePost;
-import ru.levelup.elena.roshchina.qa.homework_07.users.SingleUser;
-import ru.levelup.elena.roshchina.qa.homework_07.users.UsersPojo;
 
 import java.io.*;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static ru.levelup.elena.roshchina.qa.homework_07.Endpoints.*;
 
-public abstract class AbstractGoRestAPITest {
-    protected final String APIToken = "e2735da4aa6087a53f5374a398698fbf5aee5eb48da6944b899cc433ce9e1d2a";
+public abstract class AbstractGoRestAPITest extends Config{
     protected ArrayList<Map<String, String>> userData;
     protected ArrayList<Map<String, String>> postData;
     protected ArrayList<Map<String, String>> commentData;
-    private final String userDataFileName = "user_data.csv";
-    private final String postDataFileName = "post_data.csv";
-    private final String commentsDataFileName = "comment_data.csv";
-    private URL dataFilePathName = this.getClass().getResource("/ru.levelup.elena.roshchina.qa/homework_07/");
 
     protected int getUserId(String name, String email){
-        UsersPojo usersPojo = given().get(Endpoints.getUserFilterUrl(name, email)).then().extract().body().as(UsersPojo.class);
-        List<SingleUser> usersPojoData = usersPojo.getData();
-        if (usersPojoData != null && usersPojoData.size() >0)
-            return usersPojoData.get(0).getId();
+        Users users = given()
+                .when()
+                .queryParam("name", name).queryParam("email", email)
+                .get(BASEURL + USERSENDP)
+                .then()
+                .extract()
+                .body()
+                .as(Users.class);
+        List<SingleUser> usersData = users.getData();
+        if (usersData != null && usersData.size() >0)
+            return usersData.get(0).getId();
         else
             return -1;
     }
 
     protected int getPostId(String title){
-        PostsPojo postsPojo = given().get(Endpoints.getPostFilterUrl(title)).then().extract().body().as(PostsPojo.class);
-        List<SinglePost> postsPojoData = postsPojo.getData();
-        if (postsPojoData != null && postsPojoData.size() >0)
-            return postsPojoData.get(0).getId();
+        Posts posts = given()
+                .when()
+                .param("title", title)
+                .get(BASEURL + POSTSENDP)
+                .then()
+                .extract()
+                .body()
+                .as(Posts.class);
+        List<SinglePost> postsData = posts.getData();
+        if (postsData != null && postsData.size() >0)
+            return postsData.get(0).getId();
         else
             return -1;
     }
 
     protected int getCommentId(String name, String postID, String email){
-        CommentsPojo commentsPojo = given().get(Endpoints.getCommentFilterUrl(name, postID, email)).then().extract().body().as(CommentsPojo.class);
+        Comments commentsPojo = given()
+                .when()
+                .queryParam("name", name).queryParam("post_id", postID).queryParam("email", email)
+                .get(BASEURL + COMMENTSENDP)
+                .then()
+                .extract()
+                .body()
+                .as(Comments.class);
         List<SingleComment> comments = commentsPojo.getData();
         if (comments != null && comments.size() >0)
             return comments.get(0).getId();

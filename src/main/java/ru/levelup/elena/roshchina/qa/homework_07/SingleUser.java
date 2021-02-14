@@ -1,17 +1,16 @@
-package ru.levelup.elena.roshchina.qa.homework_07.comments;
-
+package ru.levelup.elena.roshchina.qa.homework_07;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SingleComment {
 
+public class SingleUser {
     private Integer id;
-    private Integer postId;
     private String name;
     private String email;
-    private String body;
+    private String gender;
+    private String status;
     private String createdAt;
     private String updatedAt;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
@@ -22,14 +21,6 @@ public class SingleComment {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getPostId() {
-        return postId;
-    }
-
-    public void setPostId(Integer postId) {
-        this.postId = postId;
     }
 
     public String getName() {
@@ -48,12 +39,20 @@ public class SingleComment {
         this.email = email;
     }
 
-    public String getBody() {
-        return body;
+    public String getGender() {
+        return gender;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getCreatedAt() {
@@ -79,10 +78,10 @@ public class SingleComment {
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
-
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("id", id).append("postId", postId).append("name", name).append("email", email).append("body", body).append("createdAt", createdAt).append("updatedAt", updatedAt).append("additionalProperties", additionalProperties).toString();
+        return new ToStringBuilder(this).append("id", id).append("name", name).append("email", email).append("gender", gender).append("status", status).append("created_at", createdAt).append("updated_at", updatedAt).append("additionalProperties", additionalProperties).toString();
     }
+
 
 }
